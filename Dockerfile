@@ -1,5 +1,5 @@
 # set base image
-FROM ruby:2.4.1-slim
+FROM ruby:2.5.1-slim
 
 # install packages for building application
 RUN apt-get update -qq && \
