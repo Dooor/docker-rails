@@ -11,20 +11,9 @@ RUN apt-get update -qq && \
       tar \
       ca-certificates \
       libpq-dev \
-      nodejs \
-      npm \
       mysql-client \
-      libmysqlclient-dev \
       imagemagick && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
-
-RUN npm cache clean && \
-    npm install n -g && \
-    n stable && \
-    ln -sf /usr/local/bin/node /usr/bin/node && \
-    apt-get purge -y nodejs npm
-
-RUN npm install --global yarn
 
 # add system user and make directory for application
 RUN useradd -m -s/bin/bash rails && \
